@@ -173,9 +173,9 @@ class App:
 
     def change_language(self):
         menu = Menu(self.tk, tearoff=0)
-        menu.add_command(label="German", command=lambda: self.menu_val("de"))
-        menu.add_command(label="English", command=lambda: self.menu_val("en"))
-        menu.add_command(label="Swedish", command=lambda: self.menu_val("swe"))
+        menu.add_command(label=self.dictionary.con("german"), command=lambda: self.menu_val("de"))
+        menu.add_command(label=self.dictionary.con("english"), command=lambda: self.menu_val("en"))
+        menu.add_command(label=self.dictionary.con("swedish"), command=lambda: self.menu_val("swe"))
         x = str(self.tk.winfo_x())
         y = str(self.tk.winfo_y())
         menu.post(x, y)
