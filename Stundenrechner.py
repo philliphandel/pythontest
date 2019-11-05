@@ -176,6 +176,7 @@ class App:
             self.language = "de"
         else:
             self.language = "en"
+        # saves the window position for later use
         x = str(self.tk.winfo_x())
         y = str(self.tk.winfo_y())
         self.tk.destroy()
