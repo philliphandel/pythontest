@@ -430,7 +430,10 @@ class App:
         x = datetime.timedelta(hours=starthours, minutes=startminutes)
         y = datetime.timedelta(hours=endhours, minutes=endminutes)
         j = y - x
-        labelstring = str(int(j.total_seconds() / 60))
+        z = j.total_seconds()
+        if z < 0:
+            z = 24 * 60 * 60 - float(str(z).replace("-", ""))
+        labelstring = str(int(z / 60))
 
         self.breakvaluetextlabel['text'] = self.dictionary.con("result") + ":"
         self.breakresultlabel['text'] = labelstring + " " + self.dictionary.con("minutes")
