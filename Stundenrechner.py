@@ -279,7 +279,10 @@ class App:
         x = datetime.timedelta(0, 0, 0, 0, startminutes, starthours, 0)
         y = datetime.timedelta(0, 0, 0, 0, endminutes, endhours, 0)
         z = y - x - a
-        labelstring = self._beautify(z.total_seconds())
+        z = z.total_seconds()
+        if z < 0:
+            z = 24 * 60 * 60 - float(str(z).replace("-", ""))
+        labelstring = self._beautify(z)
 
         self.hourvaluetextlabel['text'] = self.dictionary.con("result") + ":"
         self.hourresultlabel['text'] = labelstring
