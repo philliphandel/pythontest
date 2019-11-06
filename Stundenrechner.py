@@ -109,7 +109,7 @@ class App:
         Label(self.endframe, text=self.dictionary.con("breaktime") + ":").grid(column=0, row=1)
         self.endbreakentry = Entry(self.endframe)
         self.endbreakentry.grid(column=1, row=1)
-        Label(self.endframe, text=self.dictionary.con("worktime") + ":").grid(column=0, row=2)
+        Label(self.endframe, text=self.dictionary.con("workend") + ":").grid(column=0, row=2)
         self.endtimeentry = Entry(self.endframe)
         self.endtimeentry.grid(column=1, row=2)
         self.endcalcbutton = Button(self.endframe, text=self.dictionary.con("calculate"), command=self.calc_end)

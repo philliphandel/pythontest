@@ -6,7 +6,8 @@ site Site
 reset Reset
 workstart Start of work
 breaktime Length of break
-worktime End of work
+worktime Working hours
+workend End of work
 calculate Calculate
 breakstart start of break
 breakend End of break

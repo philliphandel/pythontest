@@ -6,7 +6,8 @@ site Sida
 reset Avkastning
 workstart Arbetet påbörjas
 breaktime Pauslängd
-worktime Efter arbetet
+worktime arbetstid
+workend Efter arbetet
 calculate Beräkna
 breakstart Pauser Starta
 breakend Slutet av paus

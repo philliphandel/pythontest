@@ -6,7 +6,8 @@ site Seite
 reset Zurücksetzen
 workstart Arbeitsbeginn
 breaktime Pausenlänge
-worktime Arbeitsende
+worktime Arbeitszeit
+workend Arbeitsende
 calculate Berechnen
 breakstart Pausenbeginn
 breakend Pausenende
