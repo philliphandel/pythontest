@@ -362,7 +362,10 @@ class App:
 
         # evaluates the time and displays it
         time = x + y + a
-        labelstring = self._beautify(time.total_seconds())
+        z = time.total_seconds()
+        if z > 24 * 60 * 60:
+            z = time.total_seconds() - (24 * 60 * 60)
+        labelstring = self._beautify(z)
 
         self.endvaluetextlabel['text'] = self.dictionary.con("result") + ":"
         self.endresultlabel['text'] = labelstring
