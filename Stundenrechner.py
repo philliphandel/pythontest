@@ -175,7 +175,7 @@ class App:
         menu = Menu(self.tk, tearoff=0)
         menu.add_command(label=self.dictionary.con("german"), command=lambda: self.menu_val("de"))
         menu.add_command(label=self.dictionary.con("english"), command=lambda: self.menu_val("en"))
-        menu.add_command(label=self.dictionary.con("swedish"), command=lambda: self.menu_val("swe"))
+        menu.add_command(label=self.dictionary.con("swedish"), command=lambda: self.menu_val("sve"))
         x = str(self.tk.winfo_pointerx())
         y = str(self.tk.winfo_pointery())
         menu.post(x, y)
