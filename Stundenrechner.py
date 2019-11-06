@@ -176,8 +176,8 @@ class App:
         menu.add_command(label=self.dictionary.con("german"), command=lambda: self.menu_val("de"))
         menu.add_command(label=self.dictionary.con("english"), command=lambda: self.menu_val("en"))
         menu.add_command(label=self.dictionary.con("swedish"), command=lambda: self.menu_val("swe"))
-        x = str(self.tk.winfo_x())
-        y = str(self.tk.winfo_y())
+        x = str(self.tk.winfo_pointerx())
+        y = str(self.tk.winfo_pointery())
         menu.post(x, y)
 
     def menu_val(self, lan):
