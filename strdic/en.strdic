@@ -9,7 +9,7 @@ breaktime Length of break
 worktime Working hours
 workend End of work
 calculate Calculate
-breakstart start of break
+breakstart Start of break
 breakend End of break
 result Result
 minutes minutes
@@ -17,3 +17,4 @@ languagechange Change language
 german German
 swedish Swedish
 english English
+spanish Spanish

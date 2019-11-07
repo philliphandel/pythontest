@@ -197,6 +197,7 @@ class App:
         menu.add_command(label=self.dictionary.con("german"), command=lambda: self.menu_val("de"))
         menu.add_command(label=self.dictionary.con("english"), command=lambda: self.menu_val("en"))
         menu.add_command(label=self.dictionary.con("swedish"), command=lambda: self.menu_val("sve"))
+        menu.add_command(label=self.dictionary.con("spanish"), command=lambda: self.menu_val("esp"))
         x = str(self.tk.winfo_pointerx())
         y = str(self.tk.winfo_pointery())
         menu.post(x, y)
