@@ -3,6 +3,7 @@
 import datetime
 import os
 from tkinter import *
+from pathlib import Path
 
 NUMBERS = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
 
@@ -39,7 +40,10 @@ class Dictionary:
 
 class App:
 
-    def __init__(self, lan="de", pos="+100+100"):
+    def __init__(self, lan="de", pos=None):
+        if pos is None:
+            file = open(str(Path.home()) + "\\AppData\\Local\\Stundenrechner\\tmp.txt", "r")
+            pos = str(file.read())
         self.language = lan
         self.dictionary = Dictionary(self.language)
 
@@ -48,6 +52,7 @@ class App:
         self.tk.wm_maxsize(280, 120)
         self.tk.wm_minsize(280, 120)
         self.tk.resizable(0, 0)
+        self.tk.protocol("WM_DELETE_WINDOW", self.on_close)
 
         self.hourmenu = Menu(self.tk)
         self.hournavigationmenubar = Menu(self.hourmenu)
@@ -140,6 +145,15 @@ class App:
         self.tk.bind("<Return>", self.calc_hour)
 
         self.tk.mainloop()
+
+    def on_close(self):
+        path = str(Path.home()) + "\\AppData\\Local\\Stundenrechner"
+        if not os.path.exists(path):
+            os.makedirs(path)
+        path += "\\tmp.txt"
+        file = open(path, "w")
+        file.write("+" + str(self.tk.winfo_x()) + "+" + str(self.tk.winfo_y()))
+        self.tk.destroy()
 
     def switch_to_hour(self):
         self.curractive.pack_forget()
