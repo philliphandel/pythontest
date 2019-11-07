@@ -6,6 +6,7 @@ from tkinter import *
 from pathlib import Path
 
 NUMBERS = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
+CONFIGFILENAME = "app.config"
 
 
 class Dictionary:
@@ -42,8 +43,14 @@ class App:
 
     def __init__(self, lan="de", pos=None):
         if pos is None:
-            file = open(str(Path.home()) + "\\AppData\\Local\\Stundenrechner\\tmp.txt", "r")
-            pos = str(file.read())
+            try:
+                # C:\Users\Handel\AppData\Local\Stundenrechner
+                file = open(str(Path.home()) + "\\AppData\\Local\\Stundenrechner\\" + CONFIGFILENAME, "r")
+                pos = str(file.readline())
+                if pos[-1] == "\n" or pos[-1] == "\r":
+                    pos = pos[:-1]
+            except FileNotFoundError:
+                pos = "+100+100"
         self.language = lan
         self.dictionary = Dictionary(self.language)
 
@@ -150,7 +157,7 @@ class App:
         path = str(Path.home()) + "\\AppData\\Local\\Stundenrechner"
         if not os.path.exists(path):
             os.makedirs(path)
-        path += "\\tmp.txt"
+        path += "\\" + CONFIGFILENAME
         file = open(path, "w")
         file.write("+" + str(self.tk.winfo_x()) + "+" + str(self.tk.winfo_y()))
         self.tk.destroy()
