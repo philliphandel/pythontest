@@ -188,6 +188,7 @@ class App:
         self.tk.destroy()
         self.__init__(lan=self.language, pos="+" + x + "+" + y)
 
+    # emptys all labels and entry fields
     def clear_fields(self):
         self.hourstartentry.delete(0, END)
         self.hourbreakentry.delete(0, END)
