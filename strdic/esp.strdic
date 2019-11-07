@@ -3,7 +3,7 @@ endtimecalculator Calculadora de hora de finalización
 breaktimecalculator Calculadora de tiempo de descanso
 worktimecalculator Calculadora de tiempo de trabajo
 site Sitio
-reset reajustar
+reset Reajustar
 workstart Inicio del trabajo
 breaktime Longitud del descanso
 worktime Horas laborales

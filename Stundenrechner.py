@@ -41,7 +41,8 @@ class Dictionary:
 
 class App:
 
-    def __init__(self, lan="de", pos=None):
+    def __init__(self, lan=None, pos=None):
+        file = None
         if pos is None:
             try:
                 # C:\Users\Handel\AppData\Local\Stundenrechner
@@ -51,6 +52,13 @@ class App:
                     pos = pos[:-1]
             except FileNotFoundError:
                 pos = "+100+100"
+        if lan is None:
+            try:
+                lan = file.readline()
+                if lan == "":
+                    raise AttributeError
+            except AttributeError:
+                lan = "de"
         self.language = lan
         self.dictionary = Dictionary(self.language)
 
@@ -159,7 +167,8 @@ class App:
             os.makedirs(path)
         path += "\\" + CONFIGFILENAME
         file = open(path, "w")
-        file.write("+" + str(self.tk.winfo_x()) + "+" + str(self.tk.winfo_y()))
+        file.write("+" + str(self.tk.winfo_x()) + "+" + str(self.tk.winfo_y()) + "\n")
+        file.write(self.language)
         self.tk.destroy()
 
     def switch_to_hour(self):
